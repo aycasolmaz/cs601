@@ -16,14 +16,13 @@
 				})
 				.then(function(data){
 					// Check the status code of the response
-					if(data.status == 200){
+					if(data.status === 404){
+						console.log("Error processing request");				
+					} else {
 						// Process the returned JSON data using JavaScript
 						var dataElement = document.getElementById("data_display");
 						dataElement.innerHTML = JSON.stringify(data, null, 4);
-						console.log(data);					}
-					else {
-						console.log("Error processing request");
-
+						console.log(data);						
 					}
 				});
 				});

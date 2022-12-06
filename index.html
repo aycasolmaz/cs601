@@ -4,10 +4,10 @@
     </head>
     <body>
         <button id="btn-event">Click to display json data</button>
-		<div id="data"></div>
+		<div id="data_display"></div>
 
         <script>
-            document.getElementById("btn-event").addEventListener("click", function(){
+    		document.getElementById("btn-event").addEventListener("click", function(){
                 // Create a fetch request to return a promise
                 fetch("data.json")
                 .then(function(response){
@@ -15,12 +15,13 @@
                     return response.json();
                 })
                 .then(function(data){
-                    // Check the status code of the response
-                    if(data.status === 200){
-                        // Process the returned JSON data using JavaScript
-						var dataElement = document.getElementById("data");
-						dataElement.innerHTML = data;
-                        console.log(data);
+                    console.log(data);
+			        // Check the status code of the response
+			        if(data.status === 200){
+				        // Process the returned JSON data using JavaScript
+				        var dataElement = document.getElementById("data_display");
+				        dataElement.innerHTML = data;
+				        console.log(data);
                     }
                     else {
                         console.log("Error processing request");

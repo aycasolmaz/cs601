@@ -1,33 +1,33 @@
 <HTML>
 	<head>
-        <title>CS601 Assignment 5</title>
-    </head>
-    <body>
-        <button id="btn-event">Click to display json data</button>
+		<title>CS601 Assignment 5</title>
+	</head>
+	<body>
+		<button id="btn-event">Click to display json data</button>
 		<div id="data_display"></div>
 
-        <script>
-    		document.getElementById("btn-event").addEventListener("click", function(){
-                // Create a fetch request to return a promise
-                fetch("data.json")
-                .then(function(response){
-                    // Resolve the promise using the Response class
-                    return response.json();
-                })
-                .then(function(data){
+		<script>
+			document.getElementById("btn-event").addEventListener("click", function(){
+				// Create a fetch request to return a promise
+				fetch("data.json")
+				.then(function(response){
+					// Resolve the promise using the Response class
+						return response.json();
+				})
+				.then(function(data){
 					console.log(data);
-			        // Check the status code of the response
-			        if(data.status != 200){
+					// Check the status code of the response
+					if(data.status != 200){
 						console.log("Error processing request");
-                    }
-                    else {
-                        // Process the returned JSON data using JavaScript
+					}
+					else {
+						// Process the returned JSON data using JavaScript
 						var dataElement = document.getElementById("data_display");
 						dataElement.innerHTML = JSON.stringify(data, null, 4);
 						console.log(data);
-                    }
-                });
-            });
-        </script>
-    </body>
+					}
+				});
+				});
+		</script>
+	</body>
 </html>

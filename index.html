@@ -1,9 +1,10 @@
 <HTML>
     <head>
-        <title>Event Handler</title>
+        <title>CS601 Assignment 5</title>
     </head>
     <body>
-        <button id="btn-event">Click Me!</button>
+        <button id="btn-event">Click to display json data</button>
+		<div id="data"></div>
 
         <script>
             document.getElementById("btn-event").addEventListener("click", function(){
@@ -17,6 +18,8 @@
                     // Check the status code of the response
                     if(data.status === 200){
                         // Process the returned JSON data using JavaScript
+						var dataElement = document.getElementById("data");
+						dataElement.innerHTML = data;
                         console.log(data);
                     }
                     else {

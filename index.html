@@ -15,16 +15,15 @@
 						return response.json();
 				})
 				.then(function(data){
-					console.log(data);
 					// Check the status code of the response
-					if(data.status != 200){
-						console.log("Error processing request");
-					}
-					else {
+					if(data.status == 200){
 						// Process the returned JSON data using JavaScript
 						var dataElement = document.getElementById("data_display");
 						dataElement.innerHTML = JSON.stringify(data, null, 4);
-						console.log(data);
+						console.log(data);					}
+					else {
+						console.log("Error processing request");
+
 					}
 				});
 				});
